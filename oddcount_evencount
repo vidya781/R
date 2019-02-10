@@ -1,0 +1,25 @@
+The heart of R programming consists in writing functions. A function is a group of instructions that takes inputs, uses them to compute
+other values and then returns a result.
+Here we define a function called oddcount() whose purpose is to count the odd numbers in a vector of integers.
+Also we define a function called evencount() whose purpose is to count the even numbers in a vector of integers. It is now clear that all tnat 
+needs to be changed is the simple function inside the brackets
+
+
+oddcount<- function(x){}
+> oddcount <- function(x){
++     k <- 0 # assign 0 to k
++     for (n in x) {
++         if(n %% 2 == 1) k <- k + 1 # %% is modulo operator
++     }
++     return(k)
++ }
+> oddcount(c(1,2,3,7,9))
+
+ evencount <- function(x){}
+> evencount <- function(x){
++     k <- 0 # assign 0 to k
++     for(n in x){
++         if(n %%2 == 0) k <- k + 1 
++     }
++     return(k)
++ }
