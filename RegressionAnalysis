@@ -1,0 +1,26 @@
+The objective of this write up is to demonstrate the statistical prowess of the R programming language. We will be using a simple example
+of using Quiz scores.
+
+Let us say we have a file called ExamsQuiz.txt in the same directory as we have our R studio set up. First we need to read this file
+and then make sense of the data.
+
+load("C:/Users/shankar/Desktop/.RData")
+ExamsQuiz <- read.table("C:/Users/shankar/Desktop/ExamsQuiz.txt", quote="\"", comment.char="")
+view(ExamsQuiz)     # gets a complete view of the data   
+head(ExamsQuiz)     # the first few rows are demonstrated here
+
+Now our goal is to predict the Exam 2 score ( given in the 2nd column of examsquiz) from the exam1 ( first column)
+
+lma <- lm(ExamsQuiz[,2] ~ ExamsQuiz[,1])
+
+The lm() ( standing for linear model) function call here instructs R to the following equation:
+predicted Exam 2 = beta-not + beta-one Exam 1 where the betas are constants to be evaluated from the data and this is done through a least
+squares method.
+
+lma <-lm(ExamsQuiz$V2 ~ ExamsQuiz$V1)
+attributes(lma) # yields the various components of the variable lma
+lma$coef
+summary(lma)   # gives regression specific statistics
+
+lmb <- lm(ExamsQuiz[,2] ~ ExamsQuiz[,1] + ExamsQuiz[,3])  # To estimate a prediction equation for exam 2 from both the exam 1 and the quiz scores
+
